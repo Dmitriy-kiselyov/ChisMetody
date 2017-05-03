@@ -1,11 +1,22 @@
 import java.io.*;
 import java.util.StringTokenizer;
+import java.util.function.Function;
 
 public class Main {
 
     static MyScanner in;
 
     public static void main(String[] args) throws Exception {
+        secant();
+    }
+
+    static void secant() {
+        Function<Double, Double> func = x -> x * x * x + 4 * x - 3;
+        Secant secant = new Secant(func);
+        System.out.println(secant.getRoot(0, 1, 0.0001));
+    }
+
+    static void newton() {
         NewtonRoot.Derivative2Function func = new NewtonRoot.Derivative2Function() {
 
             @Override
@@ -31,10 +42,7 @@ public class Main {
         catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
-
     }
-
-    ;
 
 }
 
