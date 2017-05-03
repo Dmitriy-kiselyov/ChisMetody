@@ -1,8 +1,5 @@
 import java.util.Arrays;
 
-/**
- * Created by Pussy_penetrator on 02.04.2017.
- */
 public class Eigen {
 
     private double[][] matx;

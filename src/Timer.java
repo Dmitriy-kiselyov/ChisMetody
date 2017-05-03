@@ -1,5 +1,4 @@
 import static java.lang.System.out;
-
 class Timer {
 
     private Long start, finish;

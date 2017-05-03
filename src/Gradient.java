@@ -1,6 +1,3 @@
-/**
- * Created by Pussy_penetrator on 10.03.2017.
- */
 public class Gradient {
 
     private double precision;

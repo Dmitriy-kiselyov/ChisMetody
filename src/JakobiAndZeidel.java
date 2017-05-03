@@ -1,8 +1,5 @@
 import java.util.Arrays;
 
-/**
- * Created by Pussy_penetrator on 06.03.2017.
- */
 public class JakobiAndZeidel {
 
     private double     precision;

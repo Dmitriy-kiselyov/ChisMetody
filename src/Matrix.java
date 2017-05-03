@@ -1,8 +1,5 @@
 import java.util.Arrays;
 
-/**
- * Created by Pussy_penetrator on 04.02.2016.
- */
 public class Matrix {
 
     public static final String SIZE_NOT_MATCH   = "size_not_match";

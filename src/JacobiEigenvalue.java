@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * Created by Pussy_penetrator on 27.03.2017.
- */
 public class JacobiEigenvalue {
 
     private double[][] matx;

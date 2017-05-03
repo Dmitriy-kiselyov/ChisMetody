@@ -1,8 +1,5 @@
 import java.util.Arrays;
 
-/**
- * Created by Pussy_penetrator on 21.03.2017.
- */
 public class Holetskiy {
 
     private double[][] coef;
