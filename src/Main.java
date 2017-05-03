@@ -1,19 +1,40 @@
 import java.io.*;
 import java.util.StringTokenizer;
-import java.util.function.Function;
 
 public class Main {
 
     static MyScanner in;
 
     public static void main(String[] args) throws Exception {
-        Function<Double, Double> func = x -> {
-            return 4 - Math.pow(Math.E, x) - 2 * x * x;
-        };
-        Dichotomy dichotomy = new Dichotomy(func, 0, 1);
+        NewtonRoot.Derivative2Function func = new NewtonRoot.Derivative2Function() {
 
-        System.out.println(dichotomy.getRoot(0.001));
+            @Override
+            public double get(double x) {
+                return x * x * x + 4 * x - 3;
+            }
+
+            @Override
+            public double derivative(double x) {
+                return 3 * x * x + 4;
+            }
+
+            @Override
+            public double derivative2(double x) {
+                return 6 * x;
+            }
+        };
+
+        NewtonRoot newtonRoot = new NewtonRoot(func);
+        try {
+            System.out.println(newtonRoot.getRoot(0, 1, 1, 0.001));
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
+
+    ;
 
 }
 
