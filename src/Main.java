@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.StringTokenizer;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class Main {
@@ -7,7 +8,13 @@ public class Main {
     static MyScanner in;
 
     public static void main(String[] args) throws Exception {
-        secant();
+        shooting();
+    }
+
+    static void shooting() {
+        BiFunction<Double, Double, Double> func = (x, y) -> Math.pow(Math.E, x) + Math.sin(y);
+        ShootingMethod shootingMethod = new ShootingMethod(func, 1, 2);
+        shootingMethod.printResult(1, 0.8, 0.01);
     }
 
     static void secant() {
