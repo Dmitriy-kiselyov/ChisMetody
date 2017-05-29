@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.StringTokenizer;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class Main {
@@ -8,47 +7,13 @@ public class Main {
     static MyScanner in;
 
     public static void main(String[] args) throws Exception {
-        shooting();
-    }
+        Function<Double, Double> rx = x -> 1.0;
+        Function<Double, Double> px = x -> x + 1;
+        Function<Double, Double> qx = x -> 2.0;
+        Function<Double, Double> fx = x -> 2.0;
 
-    static void shooting() {
-        BiFunction<Double, Double, Double> func = (x, y) -> Math.pow(Math.E, x) + Math.sin(y);
-        ShootingMethod shootingMethod = new ShootingMethod(func, 1, 2);
-        shootingMethod.printResult(1, 0.8, 0.01);
-    }
-
-    static void secant() {
-        Function<Double, Double> func = x -> x * x * x + 4 * x - 3;
-        Secant secant = new Secant(func);
-        System.out.println(secant.getRoot(0, 1, 0.0001));
-    }
-
-    static void newton() {
-        NewtonRoot.Derivative2Function func = new NewtonRoot.Derivative2Function() {
-
-            @Override
-            public double get(double x) {
-                return x * x * x + 4 * x - 3;
-            }
-
-            @Override
-            public double derivative(double x) {
-                return 3 * x * x + 4;
-            }
-
-            @Override
-            public double derivative2(double x) {
-                return 6 * x;
-            }
-        };
-
-        NewtonRoot newtonRoot = new NewtonRoot(func);
-        try {
-            System.out.println(newtonRoot.getRoot(0, 1, 1, 0.001));
-        }
-        catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        DifferentialSweep sweep = new DifferentialSweep(rx, px, qx, fx);
+        sweep.result(1, -1, -1, 1, 0, 4);
     }
 
 }
